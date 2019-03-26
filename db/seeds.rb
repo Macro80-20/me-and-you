@@ -1,6 +1,7 @@
 User.destroy_all
 Match.destroy_all
 Question.destroy_all
+Answer.destroy_all
 
 
 oli = User.create(name:"Oli", gender:'Male')
