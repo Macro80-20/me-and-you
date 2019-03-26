@@ -15,37 +15,36 @@ class CLI
         @user.save
     end
 
+    def grandma
+    Catpix::print_image "cute-grandma-illustration-260nw-628441763.jpg",
+      :limit_x => 0.5,
+      :limit_y => 1,
+      :center_x => true,
+      :center_y => true,
+      :bg => "white",
+      :bg_fill => false,
+      :resolution => "high"
+    end
+
     def self.introduction
-        image 
+        @grandma
         get_users_name
         get_users_gender
     end
 
-    def self.question_1
-      q1 = @@prompt.select("Okay honey, this is the most important question I am going to ask you. If you had an unlimited amount of cookies in front of you, how many would you have?", %w(none 7 123))
-      @user.q1 = q1
-      @user.save
+    def self.questions
+      Question.all.each do |q|
+        answer = @@prompt.select(q.question, [q.answer_1, q.answer_2, q.answer_3], convert: :string)
+        puts q.sassy_grandma_quote
+        @answer = Answer.find_or_create_by(answer: answer)
+        @answer.question_id = q.id
+        @answer.user_id = @user.id
+        @answer.save
+      end
     end
 
-    def self.question_2
-      q2 = @@prompt.select("You are looking kind of thin, what is your favourite pasta dish, my dear?", %w(Ravioli Bolognese Carbonara))
-      @user.q2 = q2
-      @user.save
-      puts "Good to know, I'll make it for you and your boo on your first date. Don't be late, only revenge is a dish best served cold!"
-    end
 
-    def self.all_questions
-      question_1
-        if @user.q1 == "none"
-          puts "You monster! Get out of my matchmaking app right now, you don't deserve love!"
-          return
-        elsif @user.q1 == "7"
-          puts "This is why you're looking so thin! My grandaughter was telling me about all those weird diets the kids are into these days... It's probably because they don't have their grandmas cooking for them...But don't worry, I'll go bake you some cookies after I'm done with this!"
-        else
-          puts "Oh, I like you! You are a catch!"
-        end
-      question_2
-    end
+
 
     # def show_their_artists
     #   puts "You currently like:"
@@ -74,4 +73,3 @@ class CLI
     # end
 
   end
-  /Users/flatiron/Documents/mod1/me_N_u/

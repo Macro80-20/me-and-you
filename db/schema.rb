@@ -10,18 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_26_111349) do
+ActiveRecord::Schema.define(version: 2019_03_26_165151) do
+
+  create_table "answers", force: :cascade do |t|
+    t.integer "question_id"
+    t.integer "user_id"
+    t.string "answer"
+  end
 
   create_table "matches", force: :cascade do |t|
     t.integer "matcher_id"
     t.integer "matchee_id"
+    t.integer "ranking"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string "question"
+    t.string "answer_1"
+    t.string "answer_2"
+    t.string "answer_3"
+    t.string "sassy_grandma_quote"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "gender"
-    t.string "q2"
-    t.string "q1"
   end
 
 end
