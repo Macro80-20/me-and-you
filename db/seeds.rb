@@ -18,4 +18,9 @@ Question.create(question: "Okay honey, this is the most important question I am 
                 answer_3: "123",
                 sassy_grandma_quote: "Good to know, I'll make it for you and your boo on your first date. Don't be late, only revenge is a dish best served cold!"
               )
-Question.create(question: "You are looking kind of thin, what is your favourite pasta dish, my dear?", answer_1: 'Ravioli', answer_2: 'Bolognese', answer_3: 'Red sauce', sassy_grandma_quote: "Oh, I like you! You are a catch!")
+Question.create(question: "You are looking kind of thin, what is your favourite pasta dish, my dear?", 
+                answer_1: 'Ravioli', 
+                answer_2: 'Bolognese', 
+                answer_3: 'Red sauce', 
+                sassy_grandma_quote: "Oh, I like you! You are a catch!"
+                )

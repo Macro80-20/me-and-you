@@ -1,6 +1,9 @@
 class Question < ActiveRecord::Base
   has_many :answers
   has_many :users, through: :answers
+
+
+  
   # # def self.question_1
   # #   q1 = @@prompt.select("Okay honey, this is the most important question I am going to ask you. If you had an unlimited amount of cookies in front of you, how many would you have?", %w(none 7 123))
   # #   @user.q1 = q1
