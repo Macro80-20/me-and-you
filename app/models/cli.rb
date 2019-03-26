@@ -34,8 +34,12 @@ class CLI
 
     def self.questions
       Question.all.each do |q|
-        @@prompt.select(q.question, [q.answer_1, q.answer_2, q.answer_3])
+        answer = @@prompt.select(q.question, [q.answer_1, q.answer_2, q.answer_3], convert: :string)
         puts q.sassy_grandma_quote
+        @answer = Answer.find_or_create_by(answer: answer)
+        @answer.question_id = q.id
+        @answer.user_id = @user.id
+        @answer.save
       end
     end
 
