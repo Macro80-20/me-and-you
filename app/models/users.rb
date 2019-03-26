@@ -4,6 +4,6 @@ class User  < ActiveRecord::Base
 
     has_many :matchees_users, foreign_key: :matchee_id, class_name: 'Match'
     has_many :matchers, through: :matchees_users
-    
+
 end
     

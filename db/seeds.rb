@@ -1,3 +1,7 @@
+User.destroy_all
+Match.destroy_all
+
+
 oli = User.create(name:"Oli",gender:'Male')
 ranjit = User.create(name:'Ranjit',gender:'Male')
 pete = User.create(name:'Pete',gender:'Male')

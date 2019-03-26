@@ -1,3 +1,0 @@
-
-
-prompt =TTY:Prompt.new
