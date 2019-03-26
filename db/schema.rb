@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_25_162201) do
+ActiveRecord::Schema.define(version: 2019_03_26_111349) do
 
   create_table "matches", force: :cascade do |t|
     t.integer "matcher_id"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2019_03_25_162201) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "gender"
+    t.string "q2"
+    t.string "q1"
   end
 
 end
