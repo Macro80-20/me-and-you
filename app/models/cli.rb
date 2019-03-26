@@ -15,7 +15,7 @@ class CLI
         @user.save
     end
 
-    def grandma
+    def self.grandma
     Catpix::print_image "cute-grandma-illustration-260nw-628441763.jpg",
       :limit_x => 0.5,
       :limit_y => 1,
@@ -27,7 +27,7 @@ class CLI
     end
 
     def self.introduction
-        @grandma
+        
         get_users_name
         get_users_gender
     end

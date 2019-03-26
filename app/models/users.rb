@@ -1,6 +1,10 @@
 class User  < ActiveRecord::Base
   has_many :answers
   has_many :questions, through: :answers
+
+
+
+  
     # has_many :matched_users, foreign_key: :matcher_id, class_name: 'Match'
     #     has_many :matchees, through: :matched_users
     #
