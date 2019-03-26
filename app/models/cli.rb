@@ -16,6 +16,7 @@ class CLI
     end
 
     def self.introduction
+        image 
         get_users_name
         get_users_gender
     end
@@ -45,6 +46,7 @@ class CLI
         end
       question_2
     end
+
     # def show_their_artists
     #   puts "You currently like:"
     #   @user.artists.each do |artist|
@@ -72,3 +74,4 @@ class CLI
     # end
 
   end
+  /Users/flatiron/Documents/mod1/me_N_u/
