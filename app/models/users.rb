@@ -20,16 +20,16 @@ class User  < ActiveRecord::Base
     User.all.map do |user|
       your_answers = user.answers.map(&:answer)
       count = (my_answers & your_answers).size
-      if count != 0 && self.id != user.id && self.gender != user.gender 
+      if count != 0 && self.id != user.id && self.gender != user.gender
         Match.create(matcher_id: self.id, matchee_id: user.id, ranking: count)
       end
     end
-    # if Match(matcher_id: self.id, matchee_id: self.id)
-    #   yourself = Match(matcher_id: self.id, matchee_id: self.id)
-    #   yourself.destroy
-    # end
   end
-  #
+
+  def top_matches
+    top_matches = Match.all.select {|i| i.ranking > 0}
+    top_matches.map{|match| match.users.name}
+  end
   # def new_match
   #   matches = []
   #   User.all.map do |i| #try using find_each
