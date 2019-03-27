@@ -56,9 +56,31 @@ Question.create(question: "I also knit, did you know that? What would you like m
   Answer.create(question_id: 1, user_id: julia.id, answer: "7")
   Answer.create(question_id: 1, user_id: fernando.id, answer: "7")
 
-  Answer.create(question_id: 2, user_id: oli.id, answer: "Ravioli")
-  Answer.create(question_id: 2, user_id: ranjit.id, answer: "Bolognese")
-  Answer.create(question_id: 2, user_id: pete.id, answer: "Bolognese")
-  Answer.create(question_id: 2, user_id: manon.id, answer: "Red sauce")
-  Answer.create(question_id: 2, user_id: julia.id, answer: "Ravioli")
-  Answer.create(question_id: 2, user_id: fernando.id, answer: "Ravioli")
+  Answer.create(question_id: 2, user_id: oli.id, answer:'Ravioli' )
+  Answer.create(question_id: 2, user_id: ranjit.id, answer: 'Ravioli' )
+  Answer.create(question_id: 2, user_id: pete.id, answer: 'Bolognese')
+  Answer.create(question_id: 2, user_id: manon.id, answer: 'Red sauce' )
+  Answer.create(question_id: 2, user_id: julia.id, answer: 'Bolognese')
+  Answer.create(question_id: 2, user_id: fernando.id, answer: 'Ravioli')
+
+  Answer.create(question_id: 3, user_id: oli.id, answer:'Friends' )
+  Answer.create(question_id: 3, user_id: ranjit.id, answer: 'Friends' )
+  Answer.create(question_id: 3, user_id: pete.id, answer: 'Friends')
+  Answer.create(question_id: 3, user_id: manon.id, answer: 'Friends')
+  Answer.create(question_id: 3, user_id: julia.id, answer: 'Sherlock' )
+  Answer.create(question_id: 3, user_id: fernando.id, answer: "I don't like watching TV" )
+
+  Answer.create(question_id: 4, user_id: oli.id, answer:'Yes!' )
+  Answer.create(question_id: 4, user_id: ranjit.id, answer: 'No' )
+  Answer.create(question_id: 4, user_id: pete.id, answer: 'No'
+  Answer.create(question_id: 4, user_id: manon.id, answer: "Depends if there are snakes around")
+  Answer.create(question_id: 4, user_id: julia.id, answer: "Depends if there are snakes around"
+  Answer.create(question_id: 4, user_id: fernando.id, answer: "Depends if there are snakes around" )
+
+  Answer.create(question_id: 5, user_id: oli.id, answer:"A hat for my dog")
+  Answer.create(question_id: 5, user_id: ranjit.id, answer: "A hat for my dog")
+  Answer.create(question_id: 5, user_id: pete.id, answer: "3 socks (there's not enough material for 4)")
+  Answer.create(question_id: 5, user_id: manon.id, answer: "2 person Christmas jumper")
+  Answer.create(question_id: 5, user_id: julia.id, answer: "2 person Christmas jumper")
+  Answer.create(question_id: 5, user_id: fernando.id, answer: "3 socks (there's not enough material for 4)")
+  
