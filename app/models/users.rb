@@ -62,7 +62,7 @@ class User  < ActiveRecord::Base
         puts "Think about your future! Why not have #{self.answers[6].downcase} children with #{self.name}?"
       end
     puts "You really need to be #{self.answers[7].downcase} for them to like you though.."
-    puts "But most importantly, #{self.name}'s main priority at the moment is #{self.answers[8].downcase}. What a sweetheart!'"
+    # puts "But most importantly, #{self.name}'s main priority at the moment is #{self.answers[8].downcase}. What a sweetheart!'"
     puts "I know that you love the sound of #{self.name}, because I picked them. Now GO HAVE FUN CHILDREN AU REVOIR!"
   end
 end

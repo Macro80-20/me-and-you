@@ -2,7 +2,7 @@ User.destroy_all
 Match.destroy_all
 Question.destroy_all
 Answer.destroy_all
-# rake db:drop db:create db:migrate db:seed  //hard reset 
+# rake db:drop db:create db:migrate db:seed  //hard reset
 
 oli = User.create(name:"Oli", gender:'boy', pronoun: "he")
 ranjit = User.create(name:'Ranjit', gender:'boy', pronoun: "he")
@@ -159,8 +159,8 @@ Question.create(question: "What is it that you want in your BAE (isn't that what
   Answer.create(question_id: 9, user_id: julia.id, answer: "Happiness")
   Answer.create(question_id: 9, user_id: fernando.id, answer: "Money, money, money")
   Answer.create(question_id: 9, user_id: myrto.id, answer: "Happiness")
-  Answer.create(question_id: 9, user_id: dunia.id, answer: "Health"
-  )
+  Answer.create(question_id: 9, user_id: dunia.id, answer: "Health")
+  
   # Answer.create(question_id: 10, user_id: oli.id, answer:"A hat for my dog")
   # Answer.create(question_id: 10, user_id: ranjit.id, answer: "A hat for my dog")
   # Answer.create(question_id: 10, user_id: pete.id, answer: "3 socks (there's not enough material for 4)")
@@ -176,9 +176,9 @@ Question.create(question: "What is it that you want in your BAE (isn't that what
   # Answer.create(question_id: 11, user_id: fernando.id, answer: "3 socks (there's not enough material for 4)")
 
   # So in matches we want to connect through answers
-  # One users - answers_id's 
-  # with another 
+  # One users - answers_id's
+  # with another
   # Users - answereds
-  # Id 
-  # So we go to the answerrs table and 
-  # Self.answers bascially looks at the tabe looks at all compares 
+  # Id
+  # So we go to the answerrs table and
+  # Self.answers bascially looks at the tabe looks at all compares

@@ -88,12 +88,12 @@ class CLI
 
 
       def self.selection #split this method (was in self.show_matches) to make the code cleaner and also use it for go_back
-        selection = @@prompt.select("I have worked my magic! Someone here is your potential
+        @selection = @@prompt.select("I have worked my magic! Someone here is your potential
           soul mate...Pick the one that gives you butterflies!", ["#{@user.top_matches[0]}",  "#{@user.top_matches[1]}",  "#{@user.top_matches[2]}"], convert: :string)
           pls = @@prompt.select("I knew you'd like this one! What a great choice! Want to see their profile?", %w(yes no), convert: :string)
           if pls == "yes"
             system "clear"
-            User.all.find{|i| i.name == selection}.user_profile
+            User.all.find{|i| i.name == @selection}.user_profile
             self.go_back
           end
         end
@@ -122,7 +122,9 @@ class CLI
         end
 
         def self.confirm_match #method that destroys all of someone's matches apart from one
-
+          if matchee_id !=  User.all.find{|i| i.name == selection}.id
+            Match.all.select{|i| i.matcher_id == @user.id}.destroy
+          end
         end
 
 
