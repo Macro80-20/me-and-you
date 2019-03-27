@@ -34,7 +34,7 @@ class CLI
   def self.get_users_name
     name = @@prompt.ask("Hello my dear! My name is Sheila and I am going to help you find the love of your life. I am very good at matchmaking, just ask my friend Margaret, I got all four of her boys engaged within a year! Anyway, what is your name darling?",convert: :string)
     # binding.pry
-    @user = User.find_or_create_by!(name: name.capitalize)
+    @user = User.find_or_create_by(name: name.capitalize)
     system "clear"
   end
 
