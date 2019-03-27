@@ -47,6 +47,33 @@ Question.create(question: "I also knit, did you know that? What would you like m
              sassy_grandma_quote: "Alright, I will get knitting!"
                 )
 
+Question.create(question: "It's a cold night and the heating indoors is broken, What would you do?",
+             answer_1: "Cuddle"
+             answer_2: "Make a cuppa"
+             answer_3: "Light a fire"
+             sassy_grandma_quote: "So would I"
+)
+
+Question.create(question: "how many little ones do you want?"
+                answer_1: "2"
+                answer_2:"more than 2"
+                answer_3: "none (I am not thinking about this yet)"
+                sassy_grandma_quote: "THE MORE THE MERRIER"``
+                )
+
+Question.create(question: "you are looking for someone..."
+                answer_1: "attractive"
+                answer_2: "similar hobbies "
+                answer_3: "stability in their life"  
+                sassy_grandma_quote: "I can work with this my friends,friend who has a best-friend might just connect with you"
+  )
+
+  Question.create(question: "little one, which one are you focusing on right now "
+                answer_1: "getting your money up"
+                answer_2: "Happiness"
+                answer_3: "Health"
+                sassy_grandma_quote: "BINGO"  
+                )
 
 
   Answer.create(question_id: 1, user_id: oli.id, answer: "none")
@@ -83,3 +110,48 @@ Question.create(question: "I also knit, did you know that? What would you like m
   Answer.create(question_id: 5, user_id: manon.id, answer: "2 person Christmas jumper")
   Answer.create(question_id: 5, user_id: julia.id, answer: "2 person Christmas jumper")
   Answer.create(question_id: 5, user_id: fernando.id, answer: "3 socks (there's not enough material for 4)")
+
+  Answer.create(question_id: 6, user_id: oli.id, answer: "Cuddle")
+  Answer.create(question_id: 6, user_id: ranjit.id, answer: "Make a cuppa")
+  Answer.create(question_id: 6, user_id: pete.id, answer: "Light a fire")
+  Answer.create(question_id: 6, user_id: manon.id, answer: "Light a fire")
+  Answer.create(question_id: 6, user_id: julia.id, answer: "Make a cuppa")
+  Answer.create(question_id: 6, user_id: fernando.id, answer: "Light a fire")
+
+
+  Answer.create(question_id: 7, user_id: oli.id, answer:"2")
+  Answer.create(question_id: 7, user_id: ranjit.id, answer: "2")
+  Answer.create(question_id: 7, user_id: pete.id, answer: "more than 2")
+  Answer.create(question_id: 7, user_id: manon.id, answer: "more than 2")
+  Answer.create(question_id: 7, user_id: julia.id, answer: "none (I am not thinking about this yet)")
+  Answer.create(question_id: 7, user_id: fernando.id, answer: "none (I am not thinking about this yet)")
+
+
+  Answer.create(question_id: 8, user_id: oli.id, answer: "similar hobbies")
+  Answer.create(question_id: 8, user_id: ranjit.id, answer: "similar hobbies")
+  Answer.create(question_id: 8, user_id: pete.id, answer: "stability in their life" )
+  Answer.create(question_id: 8, user_id: manon.id, answer: "stability in their life" )
+  Answer.create(question_id: 8, user_id: julia.id, answer: "attractive")
+  Answer.create(question_id: 8, user_id: fernando.id, answer: "attractive")
+
+  Answer.create(question_id: 9, user_id: oli.id, answer:"Health")
+  Answer.create(question_id: 9, user_id: ranjit.id, answer: "getting your money up")
+  Answer.create(question_id: 9, user_id: pete.id, answer: "Health")
+  Answer.create(question_id: 9, user_id: manon.id, answer: "Happiness")
+  Answer.create(question_id: 9, user_id: julia.id, answer: "Happiness")
+  Answer.create(question_id: 9, user_id: fernando.id, answer: "getting your money up")
+
+  # Answer.create(question_id: 10, user_id: oli.id, answer:"A hat for my dog")
+  # Answer.create(question_id: 10, user_id: ranjit.id, answer: "A hat for my dog")
+  # Answer.create(question_id: 10, user_id: pete.id, answer: "3 socks (there's not enough material for 4)")
+  # Answer.create(question_id: 10, user_id: manon.id, answer: "2 person Christmas jumper")
+  # Answer.create(question_id: 10, user_id: julia.id, answer: "2 person Christmas jumper")
+  # Answer.create(question_id: 10, user_id: fernando.id, answer: "3 socks (there's not enough material for 4)")
+
+  # Answer.create(question_id: 11, user_id: oli.id, answer:"A hat for my dog")
+  # Answer.create(question_id: 11, user_id: ranjit.id, answer: "A hat for my dog")
+  # Answer.create(question_id: 11, user_id: pete.id, answer: "3 socks (there's not enough material for 4)")
+  # Answer.create(question_id: 11, user_id: manon.id, answer: "2 person Christmas jumper")
+  # Answer.create(question_id: 11, user_id: julia.id, answer: "2 person Christmas jumper")
+  # Answer.create(question_id: 11, user_id: fernando.id, answer: "3 socks (there's not enough material for 4)")
+
