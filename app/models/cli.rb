@@ -76,7 +76,7 @@ class CLI
         Question.all.each do |q|
           answer = @@prompt.select(q.question, [q.answer_1, q.answer_2, q.answer_3], convert: :string)
           puts q.sassy_grandma_quote
-          @answer = Answer.find_or_create_by(answer: answer)
+          @answer = Answer.create(answer: answer)
           @answer.question_id = q.id
           @answer.user_id = @user.id
           @answer.save
@@ -121,11 +121,11 @@ class CLI
           end
         end
 
-        def self.confirm_match #method that destroys all of someone's matches apart from one
-          if matchee_id !=  User.all.find{|i| i.name == selection}.id
-            Match.all.select{|i| i.matcher_id == @user.id}.destroy
-          end
-        end
+        # def self.confirm_match #method that destroys all of someone's matches apart from one
+        #   if matchee_id !=  User.all.find{|i| i.name == selection}.id
+        #     Match.all.select{|i| i.matcher_id == @user.id}.destroy
+        #   end
+        # end
 
 
       #   def self.done?
