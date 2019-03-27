@@ -1,60 +1,87 @@
 class CLI
 
-      @@prompt = TTY::Prompt.new
+  @@prompt = TTY::Prompt.new
 
 
-    def self.get_users_name
-      name = @@prompt.ask("Hello my dear! My name is Sheila and I am going to help you find the love of your life. I am very good at matchmaking, just ask my friend Margaret, I got all four of her boys engaged within a year! Anyway, what is your name darling?",convert: :string)
-      # binding.pry
-      @user = User.find_or_create_by!(name: name)
+  def self.get_users_name
+    name = @@prompt.ask("Hello my dear! My name is Sheila and I am going to help you find the love of your life. I am very good at matchmaking, just ask my friend Margaret, I got all four of her boys engaged within a year! Anyway, what is your name darling?",convert: :string)
+    # binding.pry
+    @user = User.find_or_create_by!(name: name)
+    system "clear"
+  end
+
+  def self.get_users_gender
+    gender = @@prompt.select("Oh, #{@user.name}! What a beautiful name! Do me a favour #{@user.name}, I forgot my glasses at home, are you a boy or a girl?", %w(girl boy), convert: :string)
+    @user.gender = gender
+    if gender == "boy"
+      @user.pronoun = "he"
+    else
+      @user.pronoun = "she"
     end
+    @user.save
+    system "clear"
+  end
 
-    def self.get_users_gender
-        gender = @@prompt.select("Oh, #{@user.name}! What a beautiful name! Do me a favour #{@user.name}, I forgot my glasses at home, are you a boy or a girl?", %w(girl boy), convert: :string)
-        @user.gender = gender
-        @user.save
-    end
-
-    def self.grandma
+  def self.grandma
     Catpix::print_image "cute-grandma-illustration-260nw-628441763.jpg",
-      :limit_x => 0.5,
-      :limit_y => 1,
-      :center_x => true,
-      :center_y => true,
-      :bg => "white",
-      :bg_fill => false,
-      :resolution => "high"
-    end
+    :limit_x => 0.5,
+    :limit_y => 1,
+    :center_x => true,
+    :center_y => true,
+    :bg => "white",
+    :bg_fill => false,
+    :resolution => "high"
+  end
 
-    def self.introduction
-        grandma
-        get_users_name
-        get_users_gender
-    end
+  def self.introduction
+    grandma
+    get_users_name
+    get_users_gender
+    system "clear"
+  end
 
-    def self.questions
-      Question.all.each do |q|
-        answer = @@prompt.select(q.question, [q.answer_1, q.answer_2, q.answer_3], convert: :string)
-        puts q.sassy_grandma_quote
-        @answer = Answer.find_or_create_by(answer: answer)
-        @answer.question_id = q.id
-        @answer.user_id = @user.id
-        @answer.save
+  def self.questions
+    Question.all.each do |q|
+      answer = @@prompt.select(q.question, [q.answer_1, q.answer_2, q.answer_3], convert: :string)
+      puts q.sassy_grandma_quote
+      @answer = Answer.find_or_create_by(answer: answer)
+      @answer.question_id = q.id
+      @answer.user_id = @user.id
+      @answer.save
+      system "clear"
+    end
+  end
+
+
+  def self.bye
+    grandma
+    puts "Bye-Bye munchkin!! Say hello to your lovely friends for me, and tell them to answer my calls! They don't call me cupid for nothing."
+  end
+
+
+  def self.show_matches
+    puts "Okay dear, time for me to match you up! Let me look at my book..."
+    @user.match
+    if @user.match
+      selection = @@prompt.select("I have worked my magic! Someone here is your potential
+        soul mate...Pick the one that gives you butterflies!", ["#{@user.top_matches[0]}",  "#{@user.top_matches[1]}",  "#{@user.top_matches[2]}"], convert: :string)
+        pls = @@prompt.select("I knew you'd like this one! What a great choice! Want to see their profile?", %w(yes no), convert: :string)
+          if pls == "yes"
+            User.all.find{|i| i.name == selection}.user_profile
+          else
+            puts @bye
+          end
+      else
+        puts "Wow, you are really not very matchable are you..? Maybe go improve yourself and come back in a few years!"
       end
     end
 
-    def self.show_matches
-      puts "Okay dear, time for me to match you up! Let me look at my book..."
-      @user.match
-      @@prompt.select("I have worked my magic! Someone here is your potential
-        soul mate...Pick the one that gives you butterflies!", [@user.top_matches], convert: :string)
-    end
+    def self.see_profiles
 
-    def self.bye
-      grandma
-      puts "Bye-Bye munchkin!! Say hello to your lovely friends for me, and tell them to answer my calls! They don't call me cupid for nothing."
     end
 
 
 
-  end
+
+
+    end
