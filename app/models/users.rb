@@ -18,6 +18,7 @@ class User  < ActiveRecord::Base
       your_answers = user.answers
       # .map(&:answer)
       count = (my_answers & your_answers).size
+      #if the countis not and we do not match oursevles and
       if count != 0 && self.id != user.id && self.gender != user.gender
         Match.create(matcher_id: self.id, matchee_id: user.id, ranking: count)
       end
@@ -31,6 +32,14 @@ class User  < ActiveRecord::Base
     end
     top_users.flatten.compact.map(&:name)
   end
+  # def top_matches
+  #   top_matches = Match.all.select {|i| i.ranking > 0}
+  #    top_users = top_matches.map do |top_match|
+  #       User.all.select {|user| user.id == top_match.matchee_id}
+  #     end
+  #     # top_users.flatten.compact
+  #   top_users.flatten.compact.each_with_index {|match,i| puts "#{match.name}"}.split("\n")
+  # end
 
   def answers
     Answer.all.select{|i| i.user_id ==self.id }.map(&:answer)
