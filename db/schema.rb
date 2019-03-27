@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_26_171635) do
+ActiveRecord::Schema.define(version: 2019_03_26_153716) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "question_id"
@@ -29,13 +29,11 @@ ActiveRecord::Schema.define(version: 2019_03_26_171635) do
     t.string "answer_1"
     t.string "answer_2"
     t.string "answer_3"
-    t.string "sassy_grandma_quote"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "gender"
-    t.integer "answer_id"
   end
 
 end
