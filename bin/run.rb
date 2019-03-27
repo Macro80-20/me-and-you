@@ -4,5 +4,5 @@ CLI.new
 CLI.introduction
 CLI.questions
 CLI.show_matches
-# CLI.see_profiles
-# CLI.bye
+CLI.done?
+CLI.bye

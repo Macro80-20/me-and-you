@@ -6,7 +6,7 @@ class CLI
   def self.get_users_name
     name = @@prompt.ask("Hello my dear! My name is Sheila and I am going to help you find the love of your life. I am very good at matchmaking, just ask my friend Margaret, I got all four of her boys engaged within a year! Anyway, what is your name darling?",convert: :string)
     # binding.pry
-    @user = User.find_or_create_by!(name: name)
+    @user = User.find_or_create_by!(name: name.capitalize)
     system "clear"
   end
 
@@ -55,7 +55,7 @@ class CLI
 
   def self.bye
     grandma
-    puts "Bye-Bye munchkin!! Say hello to your lovely friends for me, and tell them to answer my calls! They don't call me cupid for nothing."
+    puts "Okay munchkin, this is it!! Say hello to your lovely friends for me, and tell them to answer my calls! They don't call me cupid for nothing."
   end
 
 
@@ -68,20 +68,13 @@ class CLI
         pls = @@prompt.select("I knew you'd like this one! What a great choice! Want to see their profile?", %w(yes no), convert: :string)
           if pls == "yes"
             User.all.find{|i| i.name == selection}.user_profile
-          else
-            puts @bye
           end
       else
         puts "Wow, you are really not very matchable are you..? Maybe go improve yourself and come back in a few years!"
       end
     end
 
-    def self.see_profiles
-
+     def self.done?
+       @@prompt.keypress("Press any key to confirm the match")
     end
-
-
-
-
-
-    end
+end
