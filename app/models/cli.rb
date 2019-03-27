@@ -43,15 +43,12 @@ class CLI
       end
     end
 
-   def self.list_of_matchees
-  #  table = TTY:Table.new 
-  # @User.match.each do |x?
-  choices = ["beer wine","bourbon"]
-@@prompt.multi_select("I have worked my magic! Someone here is your potential
-  soul mate, Pick one and live happily ever after", 
-  choices)
-  end 
-
+    def self.show_matches
+      puts "Okay dear, time for me to match you up! Let me look at my book..."
+      @user.match
+      @@prompt.select("I have worked my magic! Someone here is your potential
+        soul mate...Pick the one that gives you butterflies!", [@user.top_matches], convert: :string)
+    end
 
     def self.bye
       grandma

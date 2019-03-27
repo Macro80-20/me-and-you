@@ -72,9 +72,9 @@ Question.create(question: "I also knit, did you know that? What would you like m
 
   Answer.create(question_id: 4, user_id: oli.id, answer:'Yes!' )
   Answer.create(question_id: 4, user_id: ranjit.id, answer: 'No' )
-  Answer.create(question_id: 4, user_id: pete.id, answer: 'No'
+  Answer.create(question_id: 4, user_id: pete.id, answer: 'No')
   Answer.create(question_id: 4, user_id: manon.id, answer: "Depends if there are snakes around")
-  Answer.create(question_id: 4, user_id: julia.id, answer: "Depends if there are snakes around"
+  Answer.create(question_id: 4, user_id: julia.id, answer: "Depends if there are snakes around")
   Answer.create(question_id: 4, user_id: fernando.id, answer: "Depends if there are snakes around" )
 
   Answer.create(question_id: 5, user_id: oli.id, answer:"A hat for my dog")
@@ -83,4 +83,3 @@ Question.create(question: "I also knit, did you know that? What would you like m
   Answer.create(question_id: 5, user_id: manon.id, answer: "2 person Christmas jumper")
   Answer.create(question_id: 5, user_id: julia.id, answer: "2 person Christmas jumper")
   Answer.create(question_id: 5, user_id: fernando.id, answer: "3 socks (there's not enough material for 4)")
-  

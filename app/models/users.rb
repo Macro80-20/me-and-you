@@ -28,7 +28,11 @@ class User  < ActiveRecord::Base
 
   def top_matches
     top_matches = Match.all.select {|i| i.ranking > 0}
-    top_matches.map{|match| match.users.name}
+     top_users = top_matches.map do |top_match|
+        User.all.select {|user| user.id == top_match.matchee_id}
+      end
+      # top_users.flatten.compact
+    top_users.flatten.compact.each_with_index {|match,i| puts "#{match.name}"}.split("\n")
   end
 
 end
