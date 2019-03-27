@@ -32,20 +32,7 @@ class User  < ActiveRecord::Base
         User.all.select {|user| user.id == top_match.matchee_id}
       end
       # top_users.flatten.compact
-    top_users.flatten.compact.each_with_index {|match,i| puts "#{i+1}. #{match.name}"}
+    top_users.flatten.compact.each_with_index {|match,i| puts "#{match.name}"}.split("\n")
   end
-
-  # def new_match
-  #   matches = []
-  #   User.all.map do |i| #try using find_each
-  #     if i.q1 == self.q1 && i.q2 == self.q2
-  #       matches << i
-  #     end
-  #   end
-  #   matches.delete_if{|i| i==self}
-  #   matches.each do |i|
-  #     Match.create(matcher_id: i.id, matchee_id: self.id)
-  #   end
-  # end
 
 end
