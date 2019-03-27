@@ -19,9 +19,23 @@ Question.create(question: "Okay honey, this is the most important question I am 
                 answer_3: "123",
                 sassy_grandma_quote: "Good to know, I'll make it for you and your boo on your first date. Don't be late, only revenge is a dish best served cold!"
               )
-Question.create(question: "You are looking kind of thin, what is your favourite pasta dish, my dear?", 
-                answer_1: 'Ravioli', 
-                answer_2: 'Bolognese', 
-                answer_3: 'Red sauce', 
+Question.create(question: "You are looking kind of thin, what is your favourite pasta dish, my dear?",
+                answer_1: 'Ravioli',
+                answer_2: 'Bolognese',
+                answer_3: 'Red sauce',
                 sassy_grandma_quote: "Oh, I like you! You are a catch!"
                 )
+
+  Answer.create(question_id: 1, user_id: oli.id, answer: "none")
+  Answer.create(question_id: 1, user_id: ranjit.id, answer: "7")
+  Answer.create(question_id: 1, user_id: pete.id, answer: "123")
+  Answer.create(question_id: 1, user_id: manon.id, answer: "none")
+  Answer.create(question_id: 1, user_id: julia.id, answer: "7")
+  Answer.create(question_id: 1, user_id: fernando.id, answer: "7")
+
+  Answer.create(question_id: 2, user_id: oli.id, answer: "Ravioli")
+  Answer.create(question_id: 2, user_id: ranjit.id, answer: "Bolognese")
+  Answer.create(question_id: 2, user_id: pete.id, answer: "Bolognese")
+  Answer.create(question_id: 2, user_id: manon.id, answer: "Red sauce")
+  Answer.create(question_id: 2, user_id: julia.id, answer: "Ravioli")
+  Answer.create(question_id: 2, user_id: fernando.id, answer: "Ravioli")
