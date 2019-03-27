@@ -43,6 +43,13 @@ class CLI
       end
     end
 
+    def self.show_matches
+      puts "Alright dear, time for me to match you up! Let me look at my book..."
+      @user.match
+      "Perfect! Here are 5 cuties that I think you'd like! Which one gives you butterflies?"
+      @@prompt.select("Perfect! Here are 5 cuties that I think you'd like! Which one gives you butterflies?", @user.top_matches, convert: :string)
+    end
+
 
     def self.bye
       grandma
