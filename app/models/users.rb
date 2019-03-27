@@ -12,6 +12,29 @@ class User  < ActiveRecord::Base
     # has_many :matchers, through: :matchees_users
 
 
+#  John.answers = >   
+# def answers 
+# # Up until this point the User has already answered
+# # my questions. the type of info stoes inside the 
+# # answers able is the 
+# # question answered
+# # answer to that question
+# # and the users information(id)
+# # The goal of this method is pass this informatin information
+# # into the Users - answer_id attribute
+# # I already know i will have the same instances of one
+# # User with different Answer ID 
+# # (represening the question information)
+
+# #find all the answers that the user gave ,
+# # Answer.all.where(user_id: == self)
+# # this code was not necessary as the relationship was 
+# # built into the match.
+
+
+# end
+
+
     # def compare
     #   hash = {}
     #   User.all.each do |user|

@@ -27,7 +27,6 @@ class CLI
     end
 
     def self.introduction
-        
         get_users_name
         get_users_gender
     end
