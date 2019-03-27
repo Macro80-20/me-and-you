@@ -4,14 +4,14 @@ Question.destroy_all
 Answer.destroy_all
 
 
-oli = User.create(name:"Oli", gender:'boy')
-ranjit = User.create(name:'Ranjit', gender:'boy')
-pete = User.create(name:'Pete', gender:'boy')
-manon= User.create(name:'manon', gender:'girl')
-julia = User.create(name:'Julia', gender:'girl')
-myrto = User.create(name:'Mytro', gender:'girl')
-fernando = User.create(name:'fern', gender:'boy')
-dunia = User.create(name:'dunia', gender:'girl')
+oli = User.create(name:"Oli", gender:'boy', pronoun: "he")
+ranjit = User.create(name:'Ranjit', gender:'boy', pronoun: "he")
+pete = User.create(name:'Pete', gender:'boy', pronoun: "he")
+manon= User.create(name:'manon', gender:'girl', pronoun: "she")
+julia = User.create(name:'Julia', gender:'girl', pronoun: "she")
+myrto = User.create(name:'Mytro', gender:'girl', pronoun: "she")
+fernando = User.create(name:'fern', gender:'boy', pronoun: "he")
+dunia = User.create(name:'dunia', gender:'girl', pronoun: "she")
 
 Question.create(question: "Okay honey, this is the most important question I am going to ask you. If you had an unlimited amount of cookies in front of you, how many would you have?",
                 answer_1: "none",
