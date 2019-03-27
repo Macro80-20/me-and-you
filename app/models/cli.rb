@@ -6,7 +6,7 @@ class CLI
     def self.get_users_name
       name = @@prompt.ask("Welcome to our dating app, What is your name?",convert: :string)
       # binding.pry
-      @user = User.find_or_create_by(name: name)
+      @user = User.find_or_create_by!(name: name)
     end
 
     def self.get_users_gender
@@ -27,8 +27,9 @@ class CLI
     end
 
     def self.introduction
-        
+
         get_users_name
+        grandma
         get_users_gender
     end
 
@@ -44,7 +45,10 @@ class CLI
     end
 
 
-
+    def self.bye
+      grandma
+      puts "Bye-Bye munchkin!! Say hello to your lovely friends for me, and tell them to answer my calls! They don't call me cupid for nothing."
+    end
 
     # def show_their_artists
     #   puts "You currently like:"
