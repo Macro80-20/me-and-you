@@ -2,7 +2,7 @@ User.destroy_all
 Match.destroy_all
 Question.destroy_all
 Answer.destroy_all
-
+# rake db:drop db:create db:migrate db:seed  //hard reset 
 
 oli = User.create(name:"Oli", gender:'boy', pronoun: "he")
 ranjit = User.create(name:'Ranjit', gender:'boy', pronoun: "he")
@@ -155,3 +155,11 @@ Question.create(question: "What is it that you want in your BAE (isn't that what
   # Answer.create(question_id: 11, user_id: manon.id, answer: "2 person Christmas jumper")
   # Answer.create(question_id: 11, user_id: julia.id, answer: "2 person Christmas jumper")
   # Answer.create(question_id: 11, user_id: fernando.id, answer: "3 socks (there's not enough material for 4)")
+
+  # So in matches we want to connect through answers
+  # One users - answers_id's 
+  # with another 
+  # Users - answereds
+  # Id 
+  # So we go to the answerrs table and 
+  # Self.answers bascially looks at the tabe looks at all compares 
