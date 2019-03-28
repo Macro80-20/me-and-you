@@ -32,14 +32,17 @@ extend Styles::ClassMethods
       end
 
       def self.get_users_name
-        name = @@prompt.ask("Hello my dear! My name is Sheila and I am going to help you find the love of your life. I am very good at matchmaking, just ask my friend Margaret, I got all four of her boys engaged within a year! Anyway, what is your name darling?",convert: :string)
-        # binding.pry
+        str = "Hello my dear! My name is Sheila and I am going to help you find the love of your life. I am very good at matchmaking, just ask my friend Margaret, I got all four of her boys engaged within a year! Anyway, what is your name darling?"
+        puts_medium(style.red(str))
+        name = @@prompt.ask(">>>", convert: :string)
         @user = User.find_or_create_by(name: name.capitalize)
         system "clear"
       end
 
       def self.get_users_gender
-        gender = @@prompt.select("Oh, #{@user.name}! What a beautiful name! Do me a favour #{@user.name}, I forgot my glasses at home, are you a boy or a girl?", %w(girl boy), convert: :string)
+        str = style.red("Oh, #{@user.name}! What a beautiful name! Do me a favour #{@user.name}, I forgot my glasses at home, are you a boy or a girl?")
+        puts_medium(str)
+        gender = @@prompt.select(">>>", [(style.red("girl")), (style.red("boy"))], convert: :string)
         @user.gender = gender
         if gender == "boy"
           @user.pronoun = "he"
@@ -74,8 +77,8 @@ extend Styles::ClassMethods
 
       def self.questions
         Question.all.each do |q|
-          answer = @@prompt.select(style.red._on_white.bold(q.question)), [(style.white.bold(q.answer_1)),(style.white.bold(q.answer_2)),(style.white.bold(q.answer_3))], convert: :string)
-          puts q.sassy_grandma_quote
+          answer = @@prompt.select(style.red(q.question), q.answer_1, q.answer_2,q.answer_3, convert: :string)
+          style.green(q.sassy_grandma_quote)
           @answer = Answer.create(answer: answer)
           @answer.question_id = q.id
           @answer.user_id = @user.id
@@ -88,9 +91,13 @@ extend Styles::ClassMethods
 
 
       def self.selection #split this method (was in self.show_matches) to make the code cleaner and also use it for go_back
-        @selection = @@prompt.select((style.red._on_white.bold("I have worked my magic! Someone here is your potential
-          soul mate...Pick the one that gives you butterflies!")), ["#{@user.top_matches[0]}",  "#{@user.top_matches[1]}",  "#{@user.top_matches[2]}"], convert: :string)
-          pls = @@prompt.select("I knew you'd like this one! What a great choice! Want to see their profile?", %w(yes no), convert: :string)
+        str = style.red("I have worked my magic! Someone here is your potential
+          soul mate...Pick the one that gives you butterflies!")
+          str2 = style.red("I knew you'd like this one! What a great choice! Want to see their profile?")
+          puts_medium(str)
+        @selection = @@prompt.select(">>>" , ["#{@user.top_matches[0]}",  "#{@user.top_matches[1]}",  "#{@user.top_matches[2]}"], convert: :string)
+          puts_medium("I knew you'd like this one! What a great choice! Want to see their profile?")
+          pls = @@prompt.select(">>>", %w(yes no), convert: :string)
           if pls == "yes"
             system "clear"
             User.all.find{|i| i.name == @selection}.user_profile
@@ -99,10 +106,10 @@ extend Styles::ClassMethods
         end
 
       def self.show_matches
-        puts "Okay dear, time for me to match you up! Let me look at my book..."
+        puts_medium(style.red("Okay dear, time for me to match you up! Let me look at my book..."))
         @user.match
         if @user.match == nil
-            puts "Wow, you are really not very matchable are you..? Maybe go improve yourself and come back in a few years!"
+              puts_medium(style.red("Wow, you are really not very matchable are you..? Maybe go improve yourself and come back in a few years!"))
           else
             system "clear"
             self.selection
@@ -110,14 +117,16 @@ extend Styles::ClassMethods
         end
 
         def self.go_back #gives a choice between going back to the matches or confirming the match
-        answer =  @@prompt.select("Okay honey bunny, press back to see your other matches or confirm to be matched with this lovely darling!", %w(back  confirm), convert: :string)
+          str = style.red("Okay honey bunny, press back to see your other matches or confirm to be matched with this lovely darling!")
+          puts_medium(str)
+        answer =  @@prompt.select(">>>", %w(back  confirm), convert: :string)
           if answer == "back" #gives the selection of matches again as seen in self.show_matches selection variable
             # @@prompt.select("Let's try this again, shall we? Don't be too picky!!",  ["#{@user.top_matches[0]}",  "#{@user.top_matches[1]}",  "#{@user.top_matches[2]}"], convert: :string)
             system "clear"
             self.selection
           else
             system "clear"
-            puts "Your match has been confirmed darling! Go have fun! Oh young love... Makes me tear up every time..."
+            puts_medium(style.red.("Your match has been confirmed darling! Go have fun! Oh young love... Makes me tear up every time..."))
           end
         end
 
@@ -134,7 +143,7 @@ extend Styles::ClassMethods
 
       def self.bye
         # grandma
-        puts "Okay munchkin, this is it!! Say hello to your lovely friends for me, and tell them to answer my calls! They don't call me cupid for nothing."
+        puts style.red("Okay munchkin, this is it!! Say hello to your lovely friends for me, and tell them to answer my calls! They don't call me cupid for nothing.")
       end
 
 
