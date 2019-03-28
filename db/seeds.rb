@@ -2,7 +2,7 @@ User.destroy_all
 Match.destroy_all
 Question.destroy_all
 Answer.destroy_all
-# rake db:drop db:create db:migrate db:seed  //hard reset 
+# rake db:drop db:create db:migrate db:seed  //hard reset
 
 oli = User.create(name:"Oli", gender:'boy', pronoun: "he")
 ranjit = User.create(name:'Ranjit', gender:'boy', pronoun: "he")
@@ -42,7 +42,7 @@ Question.create(question: "Did I tell you about my plants? Oh I have so many of 
 
 Question.create(question: "I also knit, did you know that? What would you like me to make for you, darling?",
              answer_1: "3 socks (there's not enough material for 4)",
-             answer_2: '2 person Christmas jumper',
+             answer_2: 'A 2 person Christmas jumper',
              answer_3: "A hat for my dog",
              sassy_grandma_quote: "Alright, I will get knitting!"
                 )
@@ -56,7 +56,7 @@ Question.create(question: "Now imagine this: It's a cold night and the heating i
 
 Question.create(question: "How many little ones do you want, darling?",
                 answer_1: "Two",
-                answer_2: "more than two",
+                answer_2: "More than two",
                 answer_3: "None. I am not thinking about this yet!!",
                 sassy_grandma_quote: "My motto is: THE MORE THE MERRIER"
                 )
@@ -69,7 +69,7 @@ Question.create(question: "What is it that you want in your BAE (isn't that what
   )
 
   Question.create(question: "Okay little one, which of these are you focusing on right now?",
-                answer_1: "Getting your money up",
+                answer_1: "Money, money, money",
                 answer_2: "Happiness",
                 answer_3: "Health",
                 sassy_grandma_quote: "BINGO, VERY GOOD!
@@ -83,6 +83,9 @@ Question.create(question: "What is it that you want in your BAE (isn't that what
   Answer.create(question_id: 1, user_id: manon.id, answer: "none")
   Answer.create(question_id: 1, user_id: julia.id, answer: "7")
   Answer.create(question_id: 1, user_id: fernando.id, answer: "7")
+  Answer.create(question_id: 1, user_id: myrto.id, answer: "123")
+  Answer.create(question_id: 1, user_id: dunia.id, answer: "none")
+
 
   Answer.create(question_id: 2, user_id: oli.id, answer:'Ravioli' )
   Answer.create(question_id: 2, user_id: ranjit.id, answer: 'Ravioli' )
@@ -90,6 +93,10 @@ Question.create(question: "What is it that you want in your BAE (isn't that what
   Answer.create(question_id: 2, user_id: manon.id, answer: 'Red sauce' )
   Answer.create(question_id: 2, user_id: julia.id, answer: 'Bolognese')
   Answer.create(question_id: 2, user_id: fernando.id, answer: 'Ravioli')
+  Answer.create(question_id: 2, user_id: myrto.id, answer: "Red sauce")
+  Answer.create(question_id: 2, user_id: dunia.id, answer: "Bolognese")
+
+
 
   Answer.create(question_id: 3, user_id: oli.id, answer:'Friends' )
   Answer.create(question_id: 3, user_id: ranjit.id, answer: 'Friends' )
@@ -97,6 +104,8 @@ Question.create(question: "What is it that you want in your BAE (isn't that what
   Answer.create(question_id: 3, user_id: manon.id, answer: 'Friends')
   Answer.create(question_id: 3, user_id: julia.id, answer: 'Sherlock' )
   Answer.create(question_id: 3, user_id: fernando.id, answer: "I don't like watching TV" )
+  Answer.create(question_id: 3, user_id: myrto.id, answer: "Sherlock")
+  Answer.create(question_id: 3, user_id: dunia.id, answer: "Sherlock")
 
   Answer.create(question_id: 4, user_id: oli.id, answer:'Yes!' )
   Answer.create(question_id: 4, user_id: ranjit.id, answer: 'No' )
@@ -104,13 +113,17 @@ Question.create(question: "What is it that you want in your BAE (isn't that what
   Answer.create(question_id: 4, user_id: manon.id, answer: "Depends if there are snakes around")
   Answer.create(question_id: 4, user_id: julia.id, answer: "Depends if there are snakes around")
   Answer.create(question_id: 4, user_id: fernando.id, answer: "Depends if there are snakes around" )
+  Answer.create(question_id: 4, user_id: myrto.id, answer: "Yes!")
+  Answer.create(question_id: 4, user_id: dunia.id, answer: "No")
 
   Answer.create(question_id: 5, user_id: oli.id, answer:"A hat for my dog")
   Answer.create(question_id: 5, user_id: ranjit.id, answer: "A hat for my dog")
   Answer.create(question_id: 5, user_id: pete.id, answer: "3 socks (there's not enough material for 4)")
-  Answer.create(question_id: 5, user_id: manon.id, answer: "2 person Christmas jumper")
-  Answer.create(question_id: 5, user_id: julia.id, answer: "2 person Christmas jumper")
+  Answer.create(question_id: 5, user_id: manon.id, answer: "A 2 person Christmas jumper")
+  Answer.create(question_id: 5, user_id: julia.id, answer: "A 2 person Christmas jumper")
   Answer.create(question_id: 5, user_id: fernando.id, answer: "3 socks (there's not enough material for 4)")
+  Answer.create(question_id: 5, user_id: myrto.id, answer: "3 socks (there's not enough material for 4")
+  Answer.create(question_id: 5, user_id: dunia.id, answer: "A hat for my dog")
 
   Answer.create(question_id: 6, user_id: oli.id, answer: "Cuddle")
   Answer.create(question_id: 6, user_id: ranjit.id, answer: "Make a cuppa")
@@ -118,30 +131,36 @@ Question.create(question: "What is it that you want in your BAE (isn't that what
   Answer.create(question_id: 6, user_id: manon.id, answer: "Light a fire")
   Answer.create(question_id: 6, user_id: julia.id, answer: "Make a cuppa")
   Answer.create(question_id: 6, user_id: fernando.id, answer: "Light a fire")
+  Answer.create(question_id: 6, user_id: myrto.id, answer: "Cuddle")
+  Answer.create(question_id: 6, user_id: dunia.id, answer: "Make a cuppa")
 
+  Answer.create(question_id: 7, user_id: oli.id, answer:"Two")
+  Answer.create(question_id: 7, user_id: ranjit.id, answer: "Two")
+  Answer.create(question_id: 7, user_id: pete.id, answer: "More than two")
+  Answer.create(question_id: 7, user_id: manon.id, answer: "More than two")
+  Answer.create(question_id: 7, user_id: julia.id, answer: "None. I am not thinking about this yet!!")
+  Answer.create(question_id: 7, user_id: fernando.id, answer: "None. I am not thinking about this yet!!")
+  Answer.create(question_id: 7, user_id: myrto.id, answer: "Two")
+  Answer.create(question_id: 7, user_id: dunia.id, answer: "Two")
 
-  Answer.create(question_id: 7, user_id: oli.id, answer:"2")
-  Answer.create(question_id: 7, user_id: ranjit.id, answer: "2")
-  Answer.create(question_id: 7, user_id: pete.id, answer: "more than 2")
-  Answer.create(question_id: 7, user_id: manon.id, answer: "more than 2")
-  Answer.create(question_id: 7, user_id: julia.id, answer: "none (I am not thinking about this yet)")
-  Answer.create(question_id: 7, user_id: fernando.id, answer: "none (I am not thinking about this yet)")
-
-
-  Answer.create(question_id: 8, user_id: oli.id, answer: "similar hobbies")
-  Answer.create(question_id: 8, user_id: ranjit.id, answer: "similar hobbies")
-  Answer.create(question_id: 8, user_id: pete.id, answer: "stability in their life" )
-  Answer.create(question_id: 8, user_id: manon.id, answer: "stability in their life" )
-  Answer.create(question_id: 8, user_id: julia.id, answer: "attractive")
-  Answer.create(question_id: 8, user_id: fernando.id, answer: "attractive")
+  Answer.create(question_id: 8, user_id: oli.id, answer: "Similar hobbies")
+  Answer.create(question_id: 8, user_id: ranjit.id, answer: "Similar hobbies")
+  Answer.create(question_id: 8, user_id: pete.id, answer: "Stability in their life" )
+  Answer.create(question_id: 8, user_id: manon.id, answer: "Stability in their life" )
+  Answer.create(question_id: 8, user_id: julia.id, answer: "Attractive")
+  Answer.create(question_id: 8, user_id: fernando.id, answer: "Attractive")
+  Answer.create(question_id: 8, user_id: myrto.id, answer: "Attractive")
+  Answer.create(question_id: 8, user_id: dunia.id, answer: "Similar hobbies")
 
   Answer.create(question_id: 9, user_id: oli.id, answer:"Health")
-  Answer.create(question_id: 9, user_id: ranjit.id, answer: "getting your money up")
+  Answer.create(question_id: 9, user_id: ranjit.id, answer: "Money, money, money")
   Answer.create(question_id: 9, user_id: pete.id, answer: "Health")
   Answer.create(question_id: 9, user_id: manon.id, answer: "Happiness")
   Answer.create(question_id: 9, user_id: julia.id, answer: "Happiness")
-  Answer.create(question_id: 9, user_id: fernando.id, answer: "getting your money up")
-
+  Answer.create(question_id: 9, user_id: fernando.id, answer: "Money, money, money")
+  Answer.create(question_id: 9, user_id: myrto.id, answer: "Happiness")
+  Answer.create(question_id: 9, user_id: dunia.id, answer: "Health")
+  
   # Answer.create(question_id: 10, user_id: oli.id, answer:"A hat for my dog")
   # Answer.create(question_id: 10, user_id: ranjit.id, answer: "A hat for my dog")
   # Answer.create(question_id: 10, user_id: pete.id, answer: "3 socks (there's not enough material for 4)")
@@ -157,9 +176,9 @@ Question.create(question: "What is it that you want in your BAE (isn't that what
   # Answer.create(question_id: 11, user_id: fernando.id, answer: "3 socks (there's not enough material for 4)")
 
   # So in matches we want to connect through answers
-  # One users - answers_id's 
-  # with another 
+  # One users - answers_id's
+  # with another
   # Users - answereds
-  # Id 
-  # So we go to the answerrs table and 
-  # Self.answers bascially looks at the tabe looks at all compares 
+  # Id
+  # So we go to the answerrs table and
+  # Self.answers bascially looks at the tabe looks at all compares
