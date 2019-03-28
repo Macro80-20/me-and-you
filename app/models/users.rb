@@ -1,10 +1,11 @@
-class User  < ActiveRecord::Base
+class User < ActiveRecord::Base
+  extend Styles::ClassMethods
   has_many :answers
   has_many :questions, through: :answers
-  
+
   def match
     # self is the user we're comparing to
-  
+
     my_answers = self.answers
     # .map(&:answer)
     User.all.map do |user|
@@ -34,20 +35,31 @@ class User  < ActiveRecord::Base
   end
 
   def user_profile
-    puts "Welcome #{self.name}'s Profile!"
-    puts "#{self.name} would ALWAYS have #{self.answers[0].downcase} cookies when the opportunity presents itself."
-    puts "You would not believe it, but #{self.pronoun} thinks that the best pasta dish out there is #{self.answers[1].downcase}."
+    puts "*********************************************************************************************************************"
+    puts "                                     Welcome #{self.name}'s Profile!"
+    puts "*********************************************************************************************************************"
+    puts "       #{self.name} would ALWAYS have #{self.answers[0].downcase} cookies when the opportunity presents itself."
+    puts ""
+    puts "       You would not believe it, but #{self.pronoun} thinks that the best pasta dish out there is #{self.answers[1].downcase}."
+    puts ""
       if self.answers[2].downcase != "i don't like watching tv"
-        puts "When #{self.name} is not having a great time at FlatIron, #{self.pronoun} is watching #{self.answers[2].downcase}"
+        puts "       When #{self.name} is not having a great time at FlatIron, #{self.pronoun} is watching #{self.answers[2].downcase}"
+        puts ""
       end
-    puts "Does #{self.name} like the outdoors you ask? #{self.answers[3]}!"
-    puts "If #{self.pronoun} was to knit something for you, it would definitely be #{self.answers[4].downcase}."
-    puts "What does #{self.name} do when there's a scary and loud storm outside? #{self.answers[5]}, of course!"
+    puts "       Does #{self.name} like the outdoors you ask? #{self.answers[3]}!"
+    puts ""
+    puts "       If #{self.pronoun} was to knit something for you, it would definitely be #{self.answers[4].downcase}."
+    puts ""
+    puts "       What does #{self.name} do when there's a scary and loud storm outside? #{self.answers[5]}, of course!"
+    puts ""
       if self.answers[6] != "None. I am not thinking about this yet!!"
-        puts "Think about your future! Why not have #{self.answers[6].downcase} children with #{self.name}?"
+        puts "       Think about your future! Why not have #{self.answers[6].downcase} children with #{self.name}?"
+        puts ""
       end
-    puts "You really need to be #{self.answers[7].downcase} for them to like you though.."
-    puts "But most importantly, #{self.name}'s main priority at the moment is #{self.answers[8].downcase}. What a sweetheart!'"
-    puts "I know that you love the sound of #{self.name}, because I picked them. Now GO HAVE FUN CHILDREN AU REVOIR!"
+    puts "       You really need to be #{self.answers[7].downcase} for them to like you though.."
+    puts ""
+    puts "       But most importantly, #{self.name}'s main priority at the moment is #{self.answers[8].downcase}. What a sweetheart!'"
+    puts ""
+    puts "       I know that you love the sound of #{self.name}, because I picked them. Now GO HAVE FUN CHILDREN AU REVOIR!"
   end
 end
