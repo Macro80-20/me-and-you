@@ -31,6 +31,18 @@ class CLI
     print "\n"
   end
 
+  def self.grandma
+    Catpix::print_image "cute-grandma-illustration-260nw-628441763.jpg",
+    :limit_x => 1,
+    :limit_y => 1,
+    :center_x => true,
+    :center_y => true,
+    :bg => "white",
+    :bg_fill => true,
+    :resolution => "high"
+    sleep 1
+  end
+
   def self.get_users_name
     name = @@prompt.ask("Hello my dear! My name is Sheila and I am going to help you find the love of your life. I am very good at matchmaking, just ask my friend Margaret, I got all four of her boys engaged within a year! Anyway, what is your name darling?",convert: :string)
     # binding.pry
@@ -50,21 +62,11 @@ class CLI
     system "clear"
   end
 
-  def self.grandma
-    Catpix::print_image "cute-grandma-illustration-260nw-628441763.jpg",
-    :limit_x => 1,
-    :limit_y => 1,
-    :center_x => true,
-    :center_y => true,
-    :bg => "white",
-    :bg_fill => true,
-    :resolution => "high"
-    sleep 1
-  end
-
   def self.introduction
+    # Logo
     puts_super_fast(@@Hello)
     sleep 2
+    # Picture
     grandma
     get_users_name
     get_users_gender
@@ -105,19 +107,8 @@ class CLI
       end
     end
 
-<<<<<<< HEAD
      def self.done?
        @@prompt.keypress("Press any key to confirm the match")
-=======
-    def self.see_profiles
 
-    end
-
-
-                                                                                               
-   
-
-
->>>>>>> 7a2e16fbd086750a2f2c40e8f5204f7d51bcbd7e
     end
 end

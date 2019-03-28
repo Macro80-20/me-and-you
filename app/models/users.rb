@@ -20,7 +20,8 @@ class User  < ActiveRecord::Base
       count = (my_answers & your_answers).size
       #if the countis not and we do not match oursevles and
       if count != 0 && self.id != user.id && self.gender != user.gender
-        Match.create(matcher_id: self.id, matchee_id: user.id, ranking: count)
+        Match.create(matcher_id: self.
+          id, matchee_id: user.id, ranking: count)
       end
     end
   end
