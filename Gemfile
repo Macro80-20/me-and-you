@@ -9,4 +9,4 @@ gem 'sqlite3', '~> 1.3.6'
 gem 'pry'
 gem 'tty-prompt'
 require 'catpix'
-
+gem 'pastel'

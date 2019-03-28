@@ -1,5 +1,5 @@
 class CLI
-
+extend Styles::ClassMethods
   @@prompt = TTY::Prompt.new
   @@Hello = "
   _____ __ __    ___  ____  _       ____  __   _____      ____   ___   ______      __ __   ___   __ __
@@ -74,7 +74,7 @@ class CLI
 
       def self.questions
         Question.all.each do |q|
-          answer = @@prompt.select(q.question, [q.answer_1, q.answer_2, q.answer_3], convert: :string)
+          answer = @@prompt.select(style.red._on_white.bold(q.question)), [(style.white.bold(q.answer_1)),(style.white.bold(q.answer_2)),(style.white.bold(q.answer_3))], convert: :string)
           puts q.sassy_grandma_quote
           @answer = Answer.create(answer: answer)
           @answer.question_id = q.id
@@ -88,8 +88,8 @@ class CLI
 
 
       def self.selection #split this method (was in self.show_matches) to make the code cleaner and also use it for go_back
-        @selection = @@prompt.select("I have worked my magic! Someone here is your potential
-          soul mate...Pick the one that gives you butterflies!", ["#{@user.top_matches[0]}",  "#{@user.top_matches[1]}",  "#{@user.top_matches[2]}"], convert: :string)
+        @selection = @@prompt.select((style.red._on_white.bold("I have worked my magic! Someone here is your potential
+          soul mate...Pick the one that gives you butterflies!")), ["#{@user.top_matches[0]}",  "#{@user.top_matches[1]}",  "#{@user.top_matches[2]}"], convert: :string)
           pls = @@prompt.select("I knew you'd like this one! What a great choice! Want to see their profile?", %w(yes no), convert: :string)
           if pls == "yes"
             system "clear"
