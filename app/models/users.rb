@@ -31,7 +31,9 @@ class User  < ActiveRecord::Base
     top_users = top_matches.map do |top_match|
       User.all.select{|user| user.id == top_match.matchee_id}
     end
-    top_users.flatten.compact.map(&:name)
+    top_users.flatten.compact.map(&:name).uniq
+
+
   end
   # def top_matches
   #   top_matches = Match.all.select {|i| i.ranking > 0}
@@ -48,11 +50,19 @@ class User  < ActiveRecord::Base
 
   def user_profile
     puts "Welcome #{self.name}'s Profile!"
-    puts "#{self.name} would ALWAYS have #{self.answers[0]} cookies when the opportunity presents itself."
-    puts "You would not believe it, but #{self.pronoun} thinks that the best pasta dish out there is #{self.answers[1]}."
-    puts "When #{self.name} is not having a great time at FlatIron, #{self.pronoun} is watching #{self.answers[2]}"
+    puts "#{self.name} would ALWAYS have #{self.answers[0].downcase} cookies when the opportunity presents itself."
+    puts "You would not believe it, but #{self.pronoun} thinks that the best pasta dish out there is #{self.answers[1].downcase}."
+      if self.answers[2].downcase != "i don't like watching tv"
+        puts "When #{self.name} is not having a great time at FlatIron, #{self.pronoun} is watching #{self.answers[2].downcase}"
+      end
     puts "Does #{self.name} like the outdoors you ask? #{self.answers[3]}!"
-    puts "If #{self.pronoun} was to knit something for you, it would definitely be a #{self.answers[4]}."
-    puts "I know that you love the sound of #{self.name}, because I picked her. Now GO HAVE FUN CHILDREN AU REVOIR!"
+    puts "If #{self.pronoun} was to knit something for you, it would definitely be #{self.answers[4].downcase}."
+    puts "What does #{self.name} do when there's a scary and loud storm outside? #{self.answers[5]}, of course!"
+      if self.answers[6] != "None. I am not thinking about this yet!!"
+        puts "Think about your future! Why not have #{self.answers[6].downcase} children with #{self.name}?"
+      end
+    puts "You really need to be #{self.answers[7].downcase} for them to like you though.."
+    # puts "But most importantly, #{self.name}'s main priority at the moment is #{self.answers[8].downcase}. What a sweetheart!'"
+    puts "I know that you love the sound of #{self.name}, because I picked them. Now GO HAVE FUN CHILDREN AU REVOIR!"
   end
 end

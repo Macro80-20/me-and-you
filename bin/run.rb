@@ -1,8 +1,9 @@
 require_relative '../config/environment.rb'
-
-CLI.new
+#
+# CLI.new
 CLI.introduction
 CLI.questions
 CLI.show_matches
-CLI.done?
+CLI.go_back
+CLI.confirm_match
 CLI.bye
