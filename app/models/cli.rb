@@ -76,7 +76,7 @@ extend Styles::ClassMethods
         Question.all.each do |q|
           answer = @@prompt.select(style.red._on_white.bold(q.question)), [(style.white.bold(q.answer_1)),(style.white.bold(q.answer_2)),(style.white.bold(q.answer_3))], convert: :string)
           puts q.sassy_grandma_quote
-          @answer = Answer.find_or_create_by(answer: answer)
+          @answer = Answer.create(answer: answer)
           @answer.question_id = q.id
           @answer.user_id = @user.id
           @answer.save
@@ -121,11 +121,11 @@ extend Styles::ClassMethods
           end
         end
 
-        def self.confirm_match #method that destroys all of someone's matches apart from one
-          if matchee_id !=  User.all.find{|i| i.name == selection}.id
-            Match.all.select{|i| i.matcher_id == @user.id}.destroy
-          end
-        end
+        # def self.confirm_match #method that destroys all of someone's matches apart from one
+        #   if matchee_id !=  User.all.find{|i| i.name == selection}.id
+        #     Match.all.select{|i| i.matcher_id == @user.id}.destroy
+        #   end
+        # end
 
 
       #   def self.done?
