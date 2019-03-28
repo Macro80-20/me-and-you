@@ -72,7 +72,8 @@ Question.create(question: "What is it that you want in your BAE (isn't that what
                 answer_1: "Getting your money up",
                 answer_2: "Happiness",
                 answer_3: "Health",
-                sassy_grandma_quote: "BINGO, VERY GOOD!"
+                sassy_grandma_quote: "BINGO, VERY GOOD!
+                "
                 )
 
 
