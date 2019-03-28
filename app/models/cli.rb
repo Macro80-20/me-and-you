@@ -1,5 +1,5 @@
 class CLI
-
+extend Styles::ClassMethods
   @@prompt = TTY::Prompt.new
   @@Hello = "
   _____ __ __    ___  ____  _       ____  __   _____      ____   ___   ______      __ __   ___   __ __
@@ -11,16 +11,6 @@ class CLI
   \___||__|__||_____||____||_____||__|__|      \___|    |___,_| \___/   |__|      |____/  \___/  \__,_|
 
 "
-
-  # def self.puts_super_super_fast(str)
-  #   str
-  #   chars = str.split(//)
-  #   chars.each do |c|
-  #     print c
-  #     sleep 0.0000001
-  #   end
-  #   print "\n"
-  # end
 
    def self.puts_super_fast(str)
     chars = str.split(//)
@@ -44,8 +34,9 @@ class CLI
   end
 
   def self.get_users_name
-    name = @@prompt.ask("Hello my dear! My name is Sheila and I am going to help you find the love of your life. I am very good at matchmaking, just ask my friend Margaret, I got all four of her boys engaged within a year! Anyway, what is your name darling?",convert: :string)
-    # binding.pry
+    name = @@prompt.ask("Hello my dear! My name is Sheila and I am going to help you find the love of your life. I am very good at matchmaking,
+     just ask my friend Margaret, I got all four of her boys engaged within a year! Anyway,
+     what is your name darling?",convert: :string)
     @user = User.find_or_create_by(name: name.capitalize)
     system "clear"
   end
@@ -72,10 +63,12 @@ class CLI
     get_users_gender
     system "clear"
   end
-
+  # style.red
+  # style.red.on_green.bold
   def self.questions
     Question.all.each do |q|
-      answer = @@prompt.select(q.question, [q.answer_1, q.answer_2, q.answer_3], convert: :string)
+      choices = [(style.yellow(q.answer_1)),(style.yellow(q.answer_2)),(style.yellow(q.answer_3))]
+      answer = @@prompt.select(style.red.on_white.bold(q.question), choices, convert: :string)
       puts q.sassy_grandma_quote
       @answer = Answer.find_or_create_by(answer: answer)
       @answer.question_id = q.id
@@ -83,12 +76,6 @@ class CLI
       @answer.save
       system "clear"
     end
-  end
-
-
-  def self.bye
-    grandma
-    puts "Okay munchkin, this is it!! Say hello to your lovely friends for me, and tell them to answer my calls! They don't call me cupid for nothing."
   end
 
 
@@ -103,11 +90,18 @@ class CLI
             User.all.find{|i| i.name == selection}.user_profile
           end
       else
-        puts "Wow, you are really not very matchable are you..? Maybe go improve yourself and come back in a few years!"
+        puts "Wow, you are really not very matchable are you..? Maybe go improve yourself and come back in a few years!
+        MUHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHA"
       end
     end
 
      def self.done?
        @@prompt.keypress("Press any key to confirm the match")
     end
+
+    def self.bye
+      grandma
+      puts "Okay munchkin, this is it!! Say hello to your lovely friends for me, and tell them to answer my calls! They don't call me cupid for nothing."
+    end
+
 end
