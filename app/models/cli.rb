@@ -2,15 +2,15 @@ class CLI
 
   @@prompt = TTY::Prompt.new
   @@Hello = "
-  _____ __ __    ___  ____  _       ____  __   _____      ____   ___   ______      __ __   ___   __ __ 
+  _____ __ __    ___  ____  _       ____  __   _____      ____   ___   ______      __ __   ___   __ __
  / ___/|  |  |  /  _]|    || |     /    ||  | / ___/     /    | /   \ |      |    |  |  | /   \ |  |  |
 (   \_ |  |  | /  [_  |  | | |    |  o  ||_ |(   \_     |   __||     ||      |    |  |  ||     ||  |  |
  \__  ||  _  ||    _] |  | | |___ |     |  \| \__  |    |  |  ||  O  ||_|  |_|    |  ~  ||  O  ||  |  |
  /  \ ||  |  ||   [_  |  | |     ||  _  |     /  \ |    |  |_ ||     |  |  |      |___, ||     ||  :  |
  \    ||  |  ||     | |  | |     ||  |  |     \    |    |     ||     |  |  |      |     ||     ||     |
   \___||__|__||_____||____||_____||__|__|      \___|    |___,_| \___/   |__|      |____/  \___/  \__,_|
-                                                                                                       
-"  
+
+"
 
   # def self.puts_super_super_fast(str)
   #   str
@@ -34,7 +34,7 @@ class CLI
   def self.get_users_name
     name = @@prompt.ask("Hello my dear! My name is Sheila and I am going to help you find the love of your life. I am very good at matchmaking, just ask my friend Margaret, I got all four of her boys engaged within a year! Anyway, what is your name darling?",convert: :string)
     # binding.pry
-    @user = User.find_or_create_by!(name: name.capitalize)
+    @user = User.find_or_create_by(name: name.capitalize)
     system "clear"
   end
 
@@ -105,19 +105,7 @@ class CLI
       end
     end
 
-<<<<<<< HEAD
      def self.done?
        @@prompt.keypress("Press any key to confirm the match")
-=======
-    def self.see_profiles
-
-    end
-
-
-                                                                                               
-   
-
-
->>>>>>> 7a2e16fbd086750a2f2c40e8f5204f7d51bcbd7e
     end
 end
