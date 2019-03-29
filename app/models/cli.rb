@@ -42,7 +42,7 @@ extend Styles::ClassMethods
       def self.get_users_gender
         str = style.red("Oh, #{@user.name}! What a beautiful name! Do me a favour #{@user.name}, I forgot my glasses at home, are you a boy or a girl?")
         puts_medium(str)
-        gender = @@prompt.select(">>>", [(style.red("girl")), (style.red("boy"))], convert: :string)
+        gender = @@prompt.select(">>>", %w(girl boy), convert: :string)
         @user.gender = gender
         if gender == "boy"
           @user.pronoun = "he"
@@ -78,7 +78,8 @@ extend Styles::ClassMethods
       def self.questions
         Question.all.each do |q|
           answer = @@prompt.select(style.red(q.question), q.answer_1, q.answer_2,q.answer_3, convert: :string)
-          style.green(q.sassy_grandma_quote)
+          puts_fast(style.green(q.sassy_grandma_quote))
+          sleep 0.3
           @answer = Answer.create(answer: answer)
           @answer.question_id = q.id
           @answer.user_id = @user.id
@@ -91,17 +92,18 @@ extend Styles::ClassMethods
 
 
       def self.selection #split this method (was in self.show_matches) to make the code cleaner and also use it for go_back
-        str = style.red("I have worked my magic! Someone here is your potential
-          soul mate...Pick the one that gives you butterflies!")
+        str = style.red("I have worked my magic! Someone here is your potential soul mate... Pick the one that gives you butterflies!")
           str2 = style.red("I knew you'd like this one! What a great choice! Want to see their profile?")
           puts_medium(str)
         @selection = @@prompt.select(">>>" , ["#{@user.top_matches[0]}",  "#{@user.top_matches[1]}",  "#{@user.top_matches[2]}"], convert: :string)
-          puts_medium("I knew you'd like this one! What a great choice! Want to see their profile?")
+          puts_medium(style.red("I knew you'd like this one! What a great choice! Want to see their profile?"))
           pls = @@prompt.select(">>>", %w(yes no), convert: :string)
           if pls == "yes"
             system "clear"
             User.all.find{|i| i.name == @selection}.user_profile
             self.go_back
+          else
+            self.bye
           end
         end
 
@@ -126,15 +128,13 @@ extend Styles::ClassMethods
             self.selection
           else
             system "clear"
-            puts_medium(style.red.("Your match has been confirmed darling! Go have fun! Oh young love... Makes me tear up every time..."))
+            puts_medium(style.red("Your match has been confirmed darling! Go have fun! Oh young love... Makes me tear up every time..."))
           end
         end
 
-        # def self.confirm_match #method that destroys all of someone's matches apart from one
-        #   if matchee_id !=  User.all.find{|i| i.name == selection}.id
-        #     Match.all.select{|i| i.matcher_id == @user.id}.destroy
-        #   end
-        # end
+        def self.confirm_match #method that destroys all of someone's matches apart from one
+         @user.match.destroy_match
+        end
 
 
       #   def self.done?
@@ -143,7 +143,7 @@ extend Styles::ClassMethods
 
       def self.bye
         # grandma
-        puts style.red("Okay munchkin, this is it!! Say hello to your lovely friends for me, and tell them to answer my calls! They don't call me cupid for nothing.")
+        puts_medium(style.red("Okay munchkin, this is it!! Say hello to your lovely friends for me, and tell them to answer my calls! They don't call me cupid for nothing."))
       end
 
 

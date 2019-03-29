@@ -72,8 +72,7 @@ Question.create(question: "What is it that you want in your BAE (isn't that what
                 answer_1: "Money, money, money",
                 answer_2: "Happiness",
                 answer_3: "Health",
-                sassy_grandma_quote: "BINGO, VERY GOOD!
-                "
+                sassy_grandma_quote: "BINGO, VERY GOOD!"
                 )
 
 
@@ -160,7 +159,7 @@ Question.create(question: "What is it that you want in your BAE (isn't that what
   Answer.create(question_id: 9, user_id: fernando.id, answer: "Money, money, money")
   Answer.create(question_id: 9, user_id: myrto.id, answer: "Happiness")
   Answer.create(question_id: 9, user_id: dunia.id, answer: "Health")
-  
+
   # Answer.create(question_id: 10, user_id: oli.id, answer:"A hat for my dog")
   # Answer.create(question_id: 10, user_id: ranjit.id, answer: "A hat for my dog")
   # Answer.create(question_id: 10, user_id: pete.id, answer: "3 socks (there's not enough material for 4)")
